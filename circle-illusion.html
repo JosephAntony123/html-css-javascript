@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>circle-illusion</title>
+    <style>
+      .circle {
+        border-radius: 50%;
+        box-shadow: 0 0 0 2px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        width: 16em;
+        height: 16em;
+        transform-origin: 50% 19.1%;
+      }
+      .circle > .circle {
+        animation: circle 6s linear infinite;
+        width: 61.8%;
+        height: 61.8%;
+      }
+      @keyframes circle {
+        from {
+          transform: rotate(0);
+        }
+        to {
+          transform: rotate(1turn);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="circle">
+        <div class="circle">
+          <div class="circle">
+            <div class="cicle">
+              <div class="cicle">
+                <div class="circle">
+                  <div class="circle">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

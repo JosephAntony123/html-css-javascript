@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>card-with-flip-on-hover</title>
+    <style>
+      .body{
+    display: grid;
+    grid-template-columns: auto 0px;
+}
+.top{
+    --offset:50px;
+    position: sticky;
+    bottom: 20px;
+    margin-right: 10px;
+    place-self: end;
+    margin-top: calc(100vh + var(--offset));
+    text-decoration: none;
+    padding: 10px;
+    font-family: sans-serif;
+    color: white;
+    background: dodgerblue;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+.top:hover{
+    background-color: #555;
+}
+      .body {
+        align-items: center;
+      }
+
+      .flipbox {
+        background-color: transparent;
+        width: 300px;
+        height: 200px;
+        perspective: 1000px;
+      }
+      .flipbox-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+      }
+      .flipbox:hover .flipbox-inner {
+        transform: rotateX(180deg);
+      }
+      .frontside,
+      .backside {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+      }
+      .frontside {
+        background-color: #bbb;
+        color: black;
+      }
+      .backside {
+        background-color: dodgerblue;
+        color: wheat;
+        transform: rotateY(180deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flipbox">
+      <div class="flipbox-inner">
+        <div class="frontside">
+          <h2>Front</h2>
+        </div>
+        <div class="backside">
+          <h2>kBack</h2>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

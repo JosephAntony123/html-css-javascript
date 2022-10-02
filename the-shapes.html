@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>shapes</title>
+    <style>
+      .shapes-1 {
+        width: 40px;
+        height: 40px;
+        color: dodgerblue;
+        display: grid;
+      }
+      .shapes-1::before,
+      .shapes-1::after {
+        content: "";
+        grid-area: 1/1;
+        background: dodgerblue;
+        clip-path: polygon(0 0, 50% 50%, 0 100%);
+        animation: spl 2s infinite;
+      }
+      .shapes-1::after {
+        animation-delay: -1.5s;
+        --s: 90deg;
+      }
+      @keyframes spl {
+        0%,
+        12.5% {
+          transform: rotate(var(--s, 0deg)) rotate(0deg);
+        }
+        37.5%,
+        62.5% {
+          transform: rotate(var(--s, 0deg)) rotate(-180deg);
+        }
+        87.5%,
+        100% {
+          transform: rotate(var(--s, 0deg)) rotate(-360deg);
+        }
+      }
+      .heart {
+        background-color: red;
+        width: 100px;
+        height: 100px;
+        position: relative;
+        transform: rotate(45deg);
+        animation: animateHeart 1.2s infinite;
+        margin: 50px;
+      }
+      .heart::after,
+      .heart::before {
+        content: "";
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: absolute;
+        border-radius: 50%;
+      }
+      .heart::before {
+        left: -50px;
+      }
+      .heart::after {
+        top: -50px;
+      }
+      @keyframes animateHeart {
+        0% {
+          transform: rotate(45deg) scale(0.8);
+        }
+        5% {
+          transform: rotate(45deg) scale(0.9);
+        }
+        10% {
+          transform: rotate(45deg) scale(0.8);
+        }
+        15% {
+          transform: rotate(45deg) scale(1);
+        }
+        50% {
+          transform: rotate(45deg) scale(0.8);
+        }
+        100% {
+          transform: rotate(45deg) scale(0.8);
+        }
+      }
+      .shape {
+        width: 80px;
+        height: 80px;
+        color: #ffa500;
+        display: grid;
+        margin: 80px;
+      }
+      .shape::before,
+      .shape::after {
+        content: "";
+        grid-area: 1/1;
+        background: currentColor;
+        clip-path: polygon(0 0, 101% 0, 0 100%);
+        animation: sp3 2s infinite;
+      }
+      .shape::after {
+        --s: -1, -1;
+      }
+      @keyframes sp3 {
+        0%,
+        10% {
+          transform: scale(var(--s, 1)) translate(0px, 0px) rotate(0deg);
+        }
+        33% {
+          transform: scale(var(--s, 1)) translate(20px, -20px) rotate(0deg);
+        }
+        66% {
+          transform: scale(var(--s, 1)) translate(20px, -20px) rotate(180deg);
+        }
+        90%,
+        100% {
+          transform: scale(var(--s, 1)) translate(0px, 0px) rotate(180deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shapes-1"></div>
+    <div class="center">
+      <div class="heart"></div>
+    </div>
+    <div class="shape"></div>
+  </body>
+</html>
